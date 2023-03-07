@@ -15,7 +15,7 @@ router
 router
   .route("/")
   .post(upload.upload.single("image"), recipeController.createRecipe)
-  .get(authController.protect, recipeController.getRecipe);
+  .get(recipeController.getRecipe);
 
 router
   .route("/:id")

@@ -9,10 +9,7 @@ router
   .route("/update-status/:id")
   .patch(authController.protect, faqController.updateStatus);
 
-router
-  .route("/")
-  .post(faqController.createFaq)
-  .get(authController.protect, faqController.getFaq);
+router.route("/").post(faqController.createFaq).get(faqController.getFaq);
 
 router
   .route("/:id")

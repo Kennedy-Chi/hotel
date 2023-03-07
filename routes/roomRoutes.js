@@ -18,7 +18,7 @@ router
     ]),
     roomController.createRoom
   )
-  .get(authController.protect, roomController.getAllRooms)
+  .get(roomController.getAllRooms)
   .patch(authController.protect, roomController.resetRooms);
 
 router
