@@ -13,10 +13,11 @@ router
 router
   .route("/")
   .post(upload.upload.single("image"), postController.createPost)
-  .get(authController.protect, postController.getPosts);
+  .get(postController.getPosts);
 
 router
   .route("/:id")
+  .get(postController.getAPost)
   .patch(
     authController.protect,
     upload.upload.single("image"),

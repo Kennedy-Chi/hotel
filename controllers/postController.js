@@ -14,6 +14,7 @@ exports.createPost = catchAsync(async (req, res) => {
     category: req.body.category,
     tags: req.body.tags,
     image: req.file.filename,
+    date: new Date(),
   };
 
   const post = await Post.create(savedFields);
@@ -36,6 +37,15 @@ exports.getPosts = catchAsync(async (req, res, next) => {
   res.status(200).json({
     status: "success",
     data: posts,
+  });
+});
+
+exports.getAPost = catchAsync(async (req, res, next) => {
+  const post = await Post.findById(req.params.id);
+
+  res.status(200).json({
+    status: "success",
+    data: post,
   });
 });
 

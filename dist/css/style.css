@@ -2882,7 +2882,7 @@ textarea.w-select {
 }
 
 .card-nav {
-  top: 473.8px;
+  top: 550px;
   margin-top: 0px;
 }
 
@@ -8451,7 +8451,6 @@ textarea.w-select {
 
   .card-title.small {
     font-size: 16px;
-    white-space: pre-wrap;
   }
 
   .div-block-34 {

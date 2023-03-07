@@ -6,6 +6,8 @@ const deleteFile = require("../utils/deleteFile");
 
 const router = express.Router();
 
+router.route("/get-categories").get(recipeController.getRecipeCategory);
+
 router
   .route("/update-status/:id")
   .patch(authController.protect, recipeController.updateStatus);

@@ -35,6 +35,8 @@ exports.getAllBanner = catchAsync(async (req, res, next) => {
 
   const banner = await features.query.clone();
 
+  console.log(req.query);
+
   res.status(200).json({
     status: "success",
     resultLength: resultLen.length,

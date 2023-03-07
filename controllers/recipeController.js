@@ -36,6 +36,28 @@ exports.getRecipe = catchAsync(async (req, res, next) => {
   });
 });
 
+exports.getRecipeCategory = catchAsync(async (req, res, next) => {
+  const recipe = await Recipe.aggregate([
+    {
+      $group: {
+        originalId: { $first: "$_id" },
+        _id: "$category",
+      },
+    },
+    {
+      $project: {
+        _id: "$originalId",
+        category: "$_id",
+      },
+    },
+  ]);
+
+  res.status(200).json({
+    status: "success",
+    data: recipe,
+  });
+});
+
 exports.updateRecipe = catchAsync(async (req, res, next) => {
   let filesToDelete = [];
   let allowedFields = {
