@@ -95,7 +95,7 @@ const userSchema = new mongoose.Schema({
     default: 3.0,
   },
 
-  review: String,
+  review: Object,
 
   password: {
     type: String,
@@ -103,6 +103,7 @@ const userSchema = new mongoose.Schema({
     minlenght: [4, "Password must be at least 4 characters long"],
     select: false,
   },
+
   cPassword: {
     type: String,
     required: [true, "Please confirm the password"],
@@ -114,6 +115,7 @@ const userSchema = new mongoose.Schema({
       message: "Sorry the passwords do not match",
     },
   },
+
   bookedRooms: Array,
   activeRoom: {
     type: String,

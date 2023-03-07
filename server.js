@@ -10,7 +10,7 @@ const DB = process.env.DATABASE2.replace(
 );
 
 mongoose
-  .connect(process.env.DATABASE2, {
+  .connect(DB, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
