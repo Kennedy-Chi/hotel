@@ -5,6 +5,8 @@ const dotenv = require("dotenv");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const xss = require("xss-clean");
+const chokidar = require("chokidar");
+
 const userRouter = require("./routes/userRoutes");
 const roomRouter = require("./routes/roomRoutes");
 const bannerRouter = require("./routes/bannerRoutes");
@@ -23,6 +25,10 @@ const itemController = require("./controllers/itemController");
 const orderController = require("./controllers/orderController");
 const globalErrorHandler = require("./controllers/errorController");
 dotenv.config({ path: "./config.env" });
+
+chokidar.watch("/uploads").on("all", (event, path) => {
+  console.log(event, path);
+});
 
 const app = express();
 const server = require("http").createServer(app);
