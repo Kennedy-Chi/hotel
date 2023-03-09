@@ -2,7 +2,6 @@ const Post = require("../models/postModel");
 const AppError = require("../utils/appError");
 const APIFeatures = require("../utils/apiFeatures");
 const catchAsync = require("../utils/catchAsync");
-const { findById } = require("../models/postModel");
 
 exports.createPost = catchAsync(async (req, res) => {
   let savedFields = {
@@ -64,7 +63,7 @@ exports.updatePost = catchAsync(async (req, res, next) => {
 
   if (req.file) {
     allowedFields.image = req.file.filename;
-    const oldPost = await findById(req.params.id);
+    const oldPost = await Post.findById(req.params.id);
     filesToDelete.push(oldPost.image);
   }
 

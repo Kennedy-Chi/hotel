@@ -261,8 +261,7 @@ exports.updateRoom = catchAsync(async (req, res, next) => {
     }
   });
 
-  // req.fileNames = filesToDelete;
-  req.fileNames = [];
+  req.fileNames = filesToDelete;
 
   next();
 });
